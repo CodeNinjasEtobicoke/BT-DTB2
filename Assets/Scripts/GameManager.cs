@@ -2,11 +2,12 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class NewBehaviourScript : MonoBehaviour
+public class GameManager : MonoBehaviour
 {
     // Start is called before the first frame update
-    // Purple belt is hard (;-;)
+    // Purple belt is hard ;-;
     private Spawner spawner;
+    public GameObject title;
     private void Awake()
     {
         spawner = GameObject.Find("Spawner").GetComponent<Spawner>();
@@ -14,12 +15,16 @@ public class NewBehaviourScript : MonoBehaviour
     void Start()
     {
         spawner.active = false;
+        title.SetActive(true);
     }
 
     // Update is called once per frame
     void Update()
     {
         if (Input.anyKeyDown)
+        {
             spawner.active = false;
+            title.SetActive(true);
+        }
     }
 }
