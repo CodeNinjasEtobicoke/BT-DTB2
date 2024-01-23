@@ -11,18 +11,21 @@ public class GameManager : MonoBehaviour
     private Vector2 screenBounds;
     public GameObject playerPrefab;
     private GameObject player;
-    private bool gameStarted = false
+    private bool gameStarted = false;
+    public GameObject splash;
 
     void Awake()
     {
         spawner = GameObject.Find("Spawner").GetComponent<Spawner>();
         screenBounds = Camera.main.ScreenToWorldPoint(new Vector3(Screen.width, Screen.width, Camera.main.transform.position.z));
-        player = playerPrefab
+        player = playerPrefab;
     }
     void Start()
     {
         spawner.active = false;
         title.SetActive(true);
+
+        splash.SetActive(false);
     }
 
 
@@ -48,7 +51,7 @@ public class GameManager : MonoBehaviour
 
         foreach (GameObject bombObject in nextBomb)
         {
-            if (bombObject.transform.position.y < (-screenBounds.y) - 12)
+            if (bombObject.transform.position.y < (-screenBounds.y) - 12 || !gameStarted)
             {
                 Destroy(bombObject);
             }
@@ -57,12 +60,17 @@ public class GameManager : MonoBehaviour
     void ResetGame()
     {
         spawner.active = true;
-            title.SetActive(false);
-        player = Instantiate(playerPrefab, new Vector3(0, 0, 0), playerPrefab.transform.rotation)
+        title.SetActive(false);
+        splash.SetActive(false);
+        player = Instantiate(playerPrefab, new Vector3(0, 0, 0), playerPrefab.transform.rotation);
+        gameStarted = true;
     }
     void OnPlayerKilled()
     {
         spawner.active = false;
+        gameStarted = false;
+
+        splash.SetActive(true);
 
     }
 
