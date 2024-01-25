@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class GameManager : MonoBehaviour
 {
@@ -13,12 +14,17 @@ public class GameManager : MonoBehaviour
     private GameObject player;
     private bool gameStarted = false;
     public GameObject splash;
+    public GameObject scoreSystem;
+    public Text scoreText;
+    public int pointsWorth = 1;
+    private int score;
 
     void Awake()
     {
         spawner = GameObject.Find("Spawner").GetComponent<Spawner>();
         screenBounds = Camera.main.ScreenToWorldPoint(new Vector3(Screen.width, Screen.width, Camera.main.transform.position.z));
         player = playerPrefab;
+        scoreText.enabled = false;
     }
     void Start()
     {
@@ -51,8 +57,12 @@ public class GameManager : MonoBehaviour
 
         foreach (GameObject bombObject in nextBomb)
         {
-            if (bombObject.transform.position.y < (-screenBounds.y) - 12 || !gameStarted)
+            if (!gameStarted)
             {
+                Destroy(bombObject);
+            } else if (bombObject.transform.position.y < (-screenBounds.y) && gameStarted)
+            {
+                scoreSystem.GetComponent<Score>().AddScore(pointsWorth);
                 Destroy(bombObject);
             }
         }
@@ -64,7 +74,11 @@ public class GameManager : MonoBehaviour
         splash.SetActive(false);
         player = Instantiate(playerPrefab, new Vector3(0, 0, 0), playerPrefab.transform.rotation);
         gameStarted = true;
-    }
+
+        scoreText.enabled = true;
+        scoreSystem.GetComponent<Score>().score = 0;
+        scoreSystem.GetComponent<Score>().Start();
+     }
     void OnPlayerKilled()
     {
         spawner.active = false;
