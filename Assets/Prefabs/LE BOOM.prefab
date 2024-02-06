@@ -4823,6 +4823,7 @@ GameObject:
   - component: {fileID: 3839110052395642276}
   - component: {fileID: 5405829519087278924}
   - component: {fileID: 7376475618037338460}
+  - component: {fileID: 5837980442134083242}
   m_Layer: 0
   m_Name: LE BOOM
   m_TagString: Untagged
@@ -9624,6 +9625,18 @@ ParticleSystemRenderer:
   m_Mesh2: {fileID: 0}
   m_Mesh3: {fileID: 0}
   m_MaskInteraction: 0
+--- !u!114 &5837980442134083242
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8901326671194561550}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c354faeb098955e48bc5eb93ff72be61, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &9061695113882125559
 GameObject:
   m_ObjectHideFlags: 0
