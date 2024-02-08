@@ -1176,8 +1176,9 @@ MonoBehaviour:
     type: 3}
   splash: {fileID: 370770489}
   scoreSystem: {fileID: 678308955}
-  scoreText: {fileID: 541418744}
+  scoreText: {fileID: 291134544}
   pointsWorth: 1
+  bestScoreText: {fileID: 600949439}
 --- !u!1 &1015308220
 GameObject:
   m_ObjectHideFlags: 0
