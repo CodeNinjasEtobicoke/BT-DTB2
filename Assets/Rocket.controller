@@ -39,7 +39,7 @@ AnimatorController:
   m_AnimatorParameters:
   - m_Name: HAxis
     m_Type: 1
-    m_DefaultFloat: -1
+    m_DefaultFloat: 0
     m_DefaultInt: 0
     m_DefaultBool: 0
     m_Controller: {fileID: 0}
@@ -109,7 +109,7 @@ BlendTree:
     m_Motion: {fileID: 7400000, guid: eccac5fd4158e5542bca6622c3bb385f, type: 2}
     m_Threshold: -1
     m_Position: {x: 0, y: 0}
-    m_TimeScale: 0.3
+    m_TimeScale: 1
     m_CycleOffset: 0
     m_DirectBlendParameter: HAxis
     m_Mirror: 0
@@ -117,7 +117,7 @@ BlendTree:
     m_Motion: {fileID: 7400000, guid: 20d8077520a2a3842b6d05d5861c2508, type: 2}
     m_Threshold: 0
     m_Position: {x: 0, y: 0}
-    m_TimeScale: 0.01
+    m_TimeScale: 1
     m_CycleOffset: 0
     m_DirectBlendParameter: HAxis
     m_Mirror: 0
@@ -125,7 +125,7 @@ BlendTree:
     m_Motion: {fileID: 7400000, guid: ad808b2f4be87a64aaf2d9c76c719882, type: 2}
     m_Threshold: 1
     m_Position: {x: 0, y: 0}
-    m_TimeScale: 0.3
+    m_TimeScale: 1
     m_CycleOffset: 0
     m_DirectBlendParameter: HAxis
     m_Mirror: 0
